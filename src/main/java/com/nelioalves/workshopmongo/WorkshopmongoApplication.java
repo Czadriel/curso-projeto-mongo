@@ -14,12 +14,12 @@ public class WorkshopmongoApplication {
 		SpringApplication.run(WorkshopmongoApplication.class, args);
 	}
 
-	@Autowired
+	/*@Autowired
 	private MongoTemplate mongoTemplate;
 
 	@EventListener(ApplicationReadyEvent.class)
 	public void logDatabaseName() {
 		String dbName = mongoTemplate.getDb().getName();
 		System.out.println("Banco de dados ativo: " + dbName);
-	}
+		}*/
 }
