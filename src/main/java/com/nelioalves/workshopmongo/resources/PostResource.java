@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.RequestParam;
 import com.nelioalves.workshopmongo.resources.util.URL;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -39,6 +40,11 @@ public class PostResource {
             @RequestParam (value = "text", defaultValue = "")String text,
             @RequestParam (value = "minDate", defaultValue = "")String minDate,
             @RequestParam (value = "maxDate", defaultValue = "")String maxDate) {
+
+        if (minDate.isEmpty() || maxDate.isEmpty()){
+            return ResponseEntity.ok().body(new ArrayList<>());
+        }
+
         text = URL.decodeParam(text);
         Date min = URL.convertDate(minDate, new Date(0L));
         Date max = URL.convertDate(maxDate, new Date());
